@@ -1,0 +1,55 @@
+
+input {
+  width: 30px ;
+}
+
+table {
+  border-spacing: 10px ;
+}
+
+div {
+  padding:      10px ;
+  border-style: solid ;
+  border-width: 2px ;
+  border-color: #888888 ;
+}
+
+:focus {
+  background-color: #888888 ;
+}
+
+:focus :is( [ tabindex ], :enabled ):not( :focus [ tabindex ] * ) {
+  background-color: #ff8888 ;
+}
+
+[ tabindex ]:has( :focus ):not( [ tabindex ]:has( [ tabindex ] :focus ) ) {
+  background-color: #88ff88 ;
+}
+
+td:has( :focus ) + td :is( [ tabindex ], :enabled ):not( td [ tabindex ] *, td:has( [ tabindex ] :focus ) + td * ) {
+  background-color: #8888ff ;
+}
+
+td:has( + td :focus ) :is( [ tabindex ], :enabled ):not( td [ tabindex ] *, td:has( + td [ tabindex ] :focus ) * ) {
+  background-color: #ffff88 ;
+}
+
+tr:has( .i1 :focus ) + tr .i1 :is( [ tabindex ], :enabled ):not( td [ tabindex ] *, tr:has( td [ tabindex ] :focus ) + tr * ),
+tr:has( .i2 :focus ) + tr .i2 :is( [ tabindex ], :enabled ):not( td [ tabindex ] *, tr:has( td [ tabindex ] :focus ) + tr * ),
+tr:has( .i3 :focus ) + tr .i3 :is( [ tabindex ], :enabled ):not( td [ tabindex ] *, tr:has( td [ tabindex ] :focus ) + tr * ),
+tr:has( .i4 :focus ) + tr .i4 :is( [ tabindex ], :enabled ):not( td [ tabindex ] *, tr:has( td [ tabindex ] :focus ) + tr * ) {
+  background-color: #88ffff ;
+}
+
+tr:has( + tr .i1 :focus ) .i1 :is( [ tabindex ], :enabled ):not( td [ tabindex ] *, tr:has( + tr td [ tabindex ] :focus ) * ),
+tr:has( + tr .i2 :focus ) .i2 :is( [ tabindex ], :enabled ):not( td [ tabindex ] *, tr:has( + tr td [ tabindex ] :focus ) * ),
+tr:has( + tr .i3 :focus ) .i3 :is( [ tabindex ], :enabled ):not( td [ tabindex ] *, tr:has( + tr td [ tabindex ] :focus ) * ),
+tr:has( + tr .i4 :focus ) .i4 :is( [ tabindex ], :enabled ):not( td [ tabindex ] *, tr:has( + tr td [ tabindex ] :focus ) * ) {
+  background-color: #ff88ff ;
+}
+
+td:has( :focus ) + td :is( [ tabindex ], :enabled ):not( td [ tabindex ] *, td:has( [ tabindex ] :focus ) + td * ),
+tr:has( .i4 :focus ) + tr .i1 :is( [ tabindex ], :enabled ):not( td [ tabindex ] *, tr:has( td [ tabindex ] :focus ) + tr * ) {
+  background-color: #ff8844 ;
+}
+
